@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For my Wife 💜</title>
+
+  <!-- Fonte legível -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Manifesto e ícone -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.png" type="image/png" />
+  <meta name="theme-color" content="#d1b3ff" />
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+      color: #5c005c;
+      text-shadow: 1px 1px 2px white;
+      
+    }
+
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('fundo.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.5);
+      z-index: -3;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: -2;
+    }
+
+    .content {
+      position: relative;
+      padding: 5vw;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .mensagem, #segredo {
+      font-size: 1.6em;
+      margin-top: 30px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      border-radius: 12px;
+      display: inline-block;
+      max-width: 90vw;
+      box-sizing: border-box;
+    }
+
+    #segredo {
+      display: none;
+      opacity: 0;
+      animation: fadeIn 2s ease-in forwards;
+      color: #9900cc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #d1b3ff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #4b0082;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #b366ff;
+    }
+
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      opacity: 0.7;
+      animation: fall 8s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Kuromi flutuante */
+    .kuromiFloat {
+      position: fixed;
+      width: 60px;
+      bottom: 10%;
+      cursor: pointer;
+      z-index: 2;
+      animation: flutuarKuromi 3s ease-in-out infinite;
+    }
+
+    /* Kuromi esquerda */
+    #kuromiLeft {
+      left: 10%;
+    }
+
+    /* Kuromi direita */
+    #kuromiRight {
+      right: 10%;
+    }
+
+    @keyframes flutuarKuromi {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .mensagem, #segredo {
+        font-size: 1.2em;
+        padding: 12px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .kuromiFloat {
+        width: 40px;
+        bottom: 5%;
+      }
+
+      #kuromiLeft {
+        left: 5%;
+      }
+
+      #kuromiRight {
+        right: 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="content">
+    <h1>🌸 Oii amor! 🌸</h1>
+
+    <p class="mensagem">
+      Sinto bastante a tua falta neste tempo em que estamos separados,<br />
+      mas daqui a uns tempos te terei do meu lado novamente meu bem 💖<br /><br />
+      Pedi ao Buddy para ajudar a fazer algo fofo para ti enquanto estamos longe<br />
+      e chegamos nesta ideia de criar um site onde eu pudesse expressar o que sinto.
+      É algo pequeno por agora, porque seria impossível por em palavras tudo o que sinto.
+    </p>
+
+    <br />
+    <button onclick="mostrarMensagemETocar()">Click here if you love me</button>
+
+    <div id="segredo">
+      💌 Eu prometo cuidar do teu coração com todo o carinho do mundo...<br />
+      Graças a ti finalmente descobri a sensação de ser verdadeiramente amado,<br />
+      que amar não precisa de ser algo complicado.<br /><br />
+      És a mulher dos meus sonhos, quero passar o resto dos meus dias do teu lado.<br />
+      I want to raise our children together (Lec e Sati) 🖤💜<br /><br />
+      Te amo muito, desde Portugal até o Brasil 💖
+    </div>
+  </div>
+
+  <!-- Kuromis flutuantes -->
+  <img src="kuromi.png" alt="Kuromi flutuante esquerda" id="kuromiLeft" class="kuromiFloat" />
+  <img src="kuromi.png" alt="Kuromi flutuante direita" id="kuromiRight" class="kuromiFloat" />
+
+  <!-- Áudio principal -->
+  <audio id="musicaFofa" loop preload="auto">
+    <source src="musica fundo.mp3" type="audio/mpeg" />
+    O seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Música Kuromi esquerda -->
+  <audio id="musicaKuromiLeft" preload="auto">
+    <source src="musicakuromi.mp3" type="audio/mpeg" />
+    O seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Música Kuromi direita -->
+  <audio id="musicaKuromiRight" preload="auto">
+    <source src="musicakuromi2.mp3" type="audio/mpeg" />
+    O seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    // Registar Service Worker para PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log("SW registado!", reg))
+        .catch(err => console.error("Erro ao registar SW:", err));
+    }
+
+    // Mostrar mensagem secreta e tocar música principal
+    function mostrarMensagemETocar() {
+      const segredo = document.getElementById("segredo");
+      segredo.style.display = "block";
+
+      const audio = document.getElementById("musicaFofa");
+      audio.volume = 0.25;
+      audio.currentTime = 0;
+
+      audio.play().then(() => {
+        setTimeout(() => {
+          audio.pause();
+          audio.currentTime = 0;
+        }, 30000);
+      }).catch(err => {
+        console.log("Interação necessária para tocar o áudio:", err);
+      });
+    }
+
+    // Criar pétalas rosas a cair
+    function criarPetala() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.top = '-10px';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 8000);
+    }
+    setInterval(criarPetala, 400);
+
+    // Função para pausar todos os audios
+    function pausarTodosAudios() {
+      [musicaFofa, musicaKuromiLeft, musicaKuromiRight].forEach(audio => {
+        if (!audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+    }
+
+    // Configurar eventos de clique para as Kuromis
+    const kuromiLeft = document.getElementById('kuromiLeft');
+    const kuromiRight = document.getElementById('kuromiRight');
+    const musicaFofa = document.getElementById("musicaFofa");
+    const musicaKuromiLeft = document.getElementById("musicaKuromiLeft");
+    const musicaKuromiRight = document.getElementById("musicaKuromiRight");
+
+    kuromiLeft.addEventListener("click", () => {
+      pausarTodosAudios();
+      musicaKuromiLeft.volume = 0.4;
+      musicaKuromiLeft.play().catch(err => {
+        console.log("Erro ao tocar música Kuromi esquerda:", err);
+      });
+    });
+
+    kuromiRight.addEventListener("click", () => {
+      pausarTodosAudios();
+      musicaKuromiRight.volume = 0.4;
+      musicaKuromiRight.play().catch(err => {
+        console.log("Erro ao tocar música Kuromi direita:", err);
+      });
+    });
+  </script>
+</body>
+</html>
